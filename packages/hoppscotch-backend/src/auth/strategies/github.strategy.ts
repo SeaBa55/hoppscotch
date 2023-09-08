@@ -18,6 +18,9 @@ export class GithubStrategy extends PassportStrategy(Strategy) {
       callbackURL: process.env.GITHUB_CALLBACK_URL,
       scope: [process.env.GITHUB_SCOPE],
       store: true,
+      authorizationURL: `https://${process.env.ENTERPRISE_INSTANCE_URL}/login/oauth/authorize`,
+      tokenURL: `https://${process.env.ENTERPRISE_INSTANCE_URL}/login/oauth/access_token`,
+      userProfileURL: `https://${process.env.ENTERPRISE_INSTANCE_URL}/api/v3/user`,
     });
   }
 
